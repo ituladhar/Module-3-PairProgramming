@@ -1,0 +1,27 @@
+body.container{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+input[type="text"],[type="color"], select {
+    width: 300px;
+    height: 30px;
+    resize: vertical
+}
+
+input[type="submit"] {
+    width: 150px;
+    height: 30px;
+    color:white;
+    background-color: #00afef;
+    border-radius: 5px;
+    border: none;
+}
+
+@media only screen and (max-width: 800px){
+    body.container{
+        display:grid;
+        grid-template-columns: 1fr;
+    }
+}

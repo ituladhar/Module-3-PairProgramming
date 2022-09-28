@@ -1,0 +1,230 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #87CEEB;
+    display: grid;  /* Requirement#2 Use CSS Grid for the main layout */
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "header header"
+    "main-content main-content"
+    "race store "
+    "footer footer";
+    gap: 5px 5px;
+    
+}
+
+#did-you-know-section{
+    flex-direction:column;
+    align-content: center;
+    justify-content: flex-start;
+    grid-area: content;
+    padding-top: 50px;
+
+}
+#main-flexbox{
+    display: flex;
+    grid-area: main-content;
+}
+
+#popsicle-race-section{
+    grid-area: race;
+    display: grid;
+    grid-template-areas: 
+    "pic label"
+    "pic text";
+    justify-items: center;
+
+}
+
+#popsicle-race-section > img{
+    grid-area: pic;
+    height: 1fr;
+
+}
+
+#popsicle-race-section > h2{
+    grid-area: label;
+    text-align: center;
+}
+
+#popsicle-race-section > p{
+     grid-area: text;
+     text-align: left;
+   
+}
+
+
+#the-popsicles-store{
+    grid-area: store;
+    display:grid;
+    line-height: 1.5;
+}
+
+/* Requirement#3 Use CSS ID/class selectors and combinators*/
+.the-popsicles-store > h2{
+    text-align: center;
+}
+
+footer{
+    grid-area: footer;
+
+}
+
+#header-buttons{
+    display: flex;
+    grid-area: buttons;
+    justify-content: flex-end;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+#picture-and-title{
+    display:flex;
+    grid-area: headline;
+}
+
+#header-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:  
+    "headline buttons";
+    grid-area: header;
+}
+
+nav ul {
+    margin: 0;
+    padding: 20px 0 0 0;
+}
+
+nav ul li {
+    list-style: none;
+    width: 30%;
+    background-color: #00afef;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 50px;
+}
+
+header img {
+    height: 100px;
+    width: auto;
+}
+header h1 {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+main img {
+    object-fit: cover;
+    margin-right: 20px;
+    height: 350px;
+    width: 35%;
+}
+
+main li:before {
+    content: '🍡';
+    margin-left: -31px;
+    padding-right: 8px;
+}
+
+main, section, footer {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.store-button { /* used for store link in "Get refreshed" section, we changed to px for better ui  */ 
+    width: 20%;
+    padding: 10px;
+    border-radius: 5px;
+    color: #000000;
+    background-color: #00afef;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin-left: 40%;
+    border:none;
+}
+
+.header-button {
+    width: 110px;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: #00afef;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    justify-content:flex-end;
+    border:none;
+    display: inline-block;
+    margin-right:40px;
+
+}
+
+/* Requirement#4 Apply an effect to hyperlinks when the mouse is over it*/
+a:link{
+    text-decoration:none;
+}
+
+a:visited{
+    color: black;
+}
+
+a:hover{
+    color: white;
+}
+
+/* Requirement#5 The mobile breakpoint can be 800px since a separate tablet layout isn't required.*/
+@media only screen and (max-width: 800px){
+    body {
+        grid-template-columns:1fr;
+        grid-template-areas: 
+        "header"
+        "main-content"
+        "race"
+        "store"
+        "footer";
+    }
+    #header-grid{
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-template-columns: 1fr .5fr;
+        grid-template-areas:
+        "headline"
+        "buttons";
+        grid-area: header;
+    }
+    #header-buttons{
+        display:flex;
+        grid-area: buttons;
+        justify-content:flex-end;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #main-flexbox{
+        display: flex;
+        grid-area: main-content;
+        flex-direction: column;
+    }
+
+    main img {
+        object-fit: cover;
+        margin-right: 20px;
+        height: 350px;
+        width: 100%;
+        display:flex;
+        flex-basis: 45%;
+        flex-grow: 1;
+    }
+
+    #popsicle-race-section{
+        grid-area: race;
+        display: grid;
+        grid-template-areas: 
+        "pic label"
+        "text text";
+        justify-items: center;
+    
+    }
+   
+}
